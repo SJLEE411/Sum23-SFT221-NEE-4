@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="mapping.h" />
+    <ClInclude Include="route.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="mapping.c" />
+    <ClCompile Include="route.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
