@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "mapping.h"
 
+
 int main(void)
 {
 	struct Map baseMap = populateMap();
@@ -15,4 +16,6 @@ int main(void)
 	printMap(&routeMap, 1, 1);
 
 	return 0;
+
+
 }
