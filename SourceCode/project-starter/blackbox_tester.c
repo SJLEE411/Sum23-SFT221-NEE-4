@@ -12,6 +12,7 @@ void test_populateMap()
         printf("populateMap test case 1 failed!\n");
 }
 // Test Case 1: printMap()
+//REQ1 DEF1 and DEF2 // please check trace matrix. and update status if fixed.
 void test_printMap() {
     struct Map map = populateMap();
 
