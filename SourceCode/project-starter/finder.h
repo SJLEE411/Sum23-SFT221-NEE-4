@@ -58,10 +58,55 @@ void printRoute(struct Route route, struct Shipment shipment);
  */
 int isBuildingIntersected(const struct Route route, const struct Map *map);
 
-int isTruckOverloaded(Truck truck, Shipment ship);
+int isTruckOverloaded(Truck truck, Shipment ship)
+{
+    bool result = 0;
 
-int isBoxSizeExceeded(Truck truck, float boxSize);
+    if (truck.weight_capacity <= 1000)
+    {
+        truck.weight_capacity += ship.weight;
 
-int vaildCargo(float boxsize);
+        if (truck.weight_capacity <= 1000)
+        {
+            result = 1;
+        }
+    }
+
+    return result;
+}
+
+int isBoxSizeExceeded(Truck truck, float boxSize)
+{
+    bool result = 0;
+
+    if (truck.volume_capacity <= 36)
+    {
+        truck.volume_capacity += boxSize;
+
+        if (truck.volume_capacity <= 36)
+        {
+            result = 1;
+        }
+    }
+
+    return result;
+}
+
+int vaildCargo(float boxsize)
+{
+    const double minSize = 0.25;
+    const double halfSize = 0.5;
+    const double maxSize = 1.0;
+    int result = 0;
+
+    if (boxsize == minSize || boxsize == halfSize || boxsize == maxSize)
+    {
+        printf("valid");
+        result = 1;
+    }
+
+    printf("invalid");
+    return result;
+}
 
 #endif // FINDER_H
