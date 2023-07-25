@@ -2,6 +2,7 @@
 #define FINDER_H
 #include <stdio.h>
 #include "mapping.h"
+
 struct Truck
 {
     int truck_id;
@@ -38,7 +39,7 @@ void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const str
  * @returns - int, the index of the route in the "routes" array with the shortest distance. Returns -1 if no valid route is found.
  */
 
-int hasDestination(struct Route *route, struct Shipment shipment);
+int hasDestination(const struct Route *route, struct Shipment shipment);
 
 /**
  * Function: printRoute
@@ -56,57 +57,14 @@ void printRoute(struct Route route, struct Shipment shipment);
  * @param map - Map struct containing the buildings on the map.
  * @returns - int, 1 if the route intersects with a building, 0 if not.
  */
-int isBuildingIntersected(const struct Route route, const struct Map *map);
 
-int isTruckOverloaded(Truck truck, Shipment ship)
-{
-    bool result = 0;
+int isTruckOverloaded(struct Truck truck, struct Shipment ship);
 
-    if (truck.weight_capacity <= 1000)
-    {
-        truck.weight_capacity += ship.weight;
 
-        if (truck.weight_capacity <= 1000)
-        {
-            result = 1;
-        }
-    }
+int isBoxSizeExceeded(struct Truck truck, float boxSize);
 
-    return result;
-}
 
-int isBoxSizeExceeded(Truck truck, float boxSize)
-{
-    bool result = 0;
+int vaildCargo(float boxsize);
 
-    if (truck.volume_capacity <= 36)
-    {
-        truck.volume_capacity += boxSize;
-
-        if (truck.volume_capacity <= 36)
-        {
-            result = 1;
-        }
-    }
-
-    return result;
-}
-
-int vaildCargo(float boxsize)
-{
-    const double minSize = 0.25;
-    const double halfSize = 0.5;
-    const double maxSize = 1.0;
-    int result = 0;
-
-    if (boxsize == minSize || boxsize == halfSize || boxsize == maxSize)
-    {
-        printf("valid");
-        result = 1;
-    }
-
-    printf("invalid");
-    return result;
-}
 
 #endif // FINDER_H
