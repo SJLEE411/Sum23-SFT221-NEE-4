@@ -93,4 +93,6 @@ int isBoxSizeExceeded(struct Truck truck, float boxSize);
 // Otherwise, it prints "invalid" and returns 0 (false), indicating that the box size is not valid.
 int validCargo(float boxsize);
 
+
+void postCommitHook();
 #endif // FINDER_H
