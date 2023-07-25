@@ -9,12 +9,12 @@ void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const str
     for (int i = 0; i < truck.allocated_shipments; i++)
     {
         // Check if the truck's destination count matches the shipment's destination
-        if (truck.destination_counts[i] == hasDestination(&routes[i], shipment))
+        if (truck.destination_counts[i] == hasDestination(routes[i], shipment))
         {
             // Check if the route intersects with buildings on the map
             if (!isBuildingIntersected(*routes[i], map))
             {
-                routes[count++] = &routes[i];
+                routes[count++] = routes[i];
             }
         }
     }

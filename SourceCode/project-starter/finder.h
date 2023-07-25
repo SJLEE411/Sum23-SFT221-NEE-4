@@ -58,7 +58,7 @@ void printRoute(struct Route route, struct Shipment shipment);
  */
 int isBuildingIntersected(const struct Route route, const struct Map *map);
 
-int isTruckOverloaded(Truck truck, Shipment ship)
+int isTruckOverloaded(truck Truck truck, Shipment ship)
 {
     bool result = 0;
 
