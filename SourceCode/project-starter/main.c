@@ -17,20 +17,24 @@ int main(void)
 
 	 struct Truck myTruck = {800, 30.0};
     struct Shipment myShipment = {200};
-    
-    //isTruckOverloaded function
-	int truckOverloaded;
-	do{
-    truckOverloaded = isTruckOverloaded(myTruck, myShipment);
-    if (truckOverloaded) {
-        printf("Truck is overloaded.\n");
+
+	    //validCargo function
+	 int isValid;
+	 do{
+		float boxSizeToCheck;
+    printf("Enter cargo: ");
+	 scanf("%f", &boxSizeToCheck);
+    int isValid = validCargo(boxSizeToCheck);
+    if (isValid) {
+        printf("Box size is valid.\n");
     } else {
-        printf("Truck is not overloaded.\n");
+        printf("Box size is not valid.\n");
     }
 
-	}while(truckOverloaded != 1);
-    
-    //isBoxSizeExceeded function
+	 }while(isValid != 1);
+
+
+	     //isBoxSizeExceeded function
         int boxExceeded;
     do {
         float boxToAdd;
@@ -46,21 +50,17 @@ int main(void)
         }
     } while (boxExceeded != 1);
     
-
-
-    //validCargo function
-	 int isValid;
-	 do{
-
-    float boxSizeToCheck = 0.5;
-    int isValid = validCargo(boxSizeToCheck);
-    if (isValid) {
-        printf("Box size is valid.\n");
+    //isTruckOverloaded function
+	int truckOverloaded;
+	do{
+    truckOverloaded = isTruckOverloaded(myTruck, myShipment);
+    if (truckOverloaded) {
+        printf("Truck is overloaded.\n");
     } else {
-        printf("Box size is not valid.\n");
+        printf("Truck is not overloaded.\n");
     }
 
-	 }while(isValid != 1);
+	}while(truckOverloaded != 1);
 
 	printMap(&routeMap, 1, 1);
 
