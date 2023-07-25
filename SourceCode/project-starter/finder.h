@@ -50,13 +50,7 @@ int hasDestination(const struct Route *route, struct Shipment shipment);
  */
 void printRoute(struct Route route, struct Shipment shipment);
 
-/**
- * Function: isBuildingIntersected
- * - Checks if a given route intersects with any buildings on the map.
- * @param route - Route struct to check for intersections with buildings.
- * @param map - Map struct containing the buildings on the map.
- * @returns - int, 1 if the route intersects with a building, 0 if not.
- */
+int getBestRoute(struct Route *routes[MAX_ROUTE], struct Shipment shipment, int size);
 
 
 // This function checks whether a truck is overloaded after adding a shipment to it.
