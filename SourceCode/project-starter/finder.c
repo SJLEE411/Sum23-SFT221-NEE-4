@@ -9,22 +9,25 @@ void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const str
     for (int i = 0; i < truck.allocated_shipments; i++)
     {
         // Check if the truck's destination count matches the shipment's destination
-        if (truck.destination_counts[i] == hasDestination(&routes[i], shipment, size, map))
+        if (truck.destination_counts[i] == hasDestination(&routes[i], shipment))
         {
             // Check if the route intersects with buildings on the map
-            routes[count++] = &routes[i];
+            if (!isBuildingIntersected(*routes[i], map))
+            {
+                routes[count++] = &routes[i];
+            }
         }
     }
     *size = count; // Update the number of valid routes found
 }
 
 // Function to check if a route has the given shipment destination
-int hasDestination(const struct Route *route, const struct Shipment shipment, int size, const struct Map *map)
+int hasDestination(const struct Route *route, struct Shipment shipment)
 {
     for (int i = 0; i < route->numPoints; i++)
     {
-        // Check if any point in the route matches the shipment's destination
-        if (eqPt(route->points[i], shipment.destination))
+        // Check if the current point in the route matches the shipment's destination
+        if (route->points[i].row == shipment.destination.row && route->points[i].col == shipment.destination.col)
         {
             return 1; // The route has the shipment's destination
         }
