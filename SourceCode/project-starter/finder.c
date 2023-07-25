@@ -162,5 +162,5 @@ void postCommitHook() {
 }
 
 void preCommitHook() {
-    printf("This is for pre commit hook");
+    printf("another test");
 }
