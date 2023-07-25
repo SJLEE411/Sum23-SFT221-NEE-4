@@ -95,4 +95,5 @@ int validCargo(float boxsize);
 
 
 void postCommitHook();
+void preCommitHook();
 #endif // FINDER_H
