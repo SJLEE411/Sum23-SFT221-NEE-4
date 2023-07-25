@@ -38,7 +38,7 @@ void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const str
  * @returns - int, the index of the route in the "routes" array with the shortest distance. Returns -1 if no valid route is found.
  */
 
-int hasDestination(struct Route *route, struct Shipment shipment);
+int hasDestination(const struct Route *route, struct Shipment shipment);
 
 /**
  * Function: printRoute
