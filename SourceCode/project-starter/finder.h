@@ -58,12 +58,31 @@ void printRoute(struct Route route, struct Shipment shipment);
  * @returns - int, 1 if the route intersects with a building, 0 if not.
  */
 
+
+// This function checks whether a truck is overloaded after adding a shipment to it.
+// It takes two parameters, 'truck', which represents the truck with its weight capacity,
+// and 'ship', which represents the shipment with its weight.
+// If the truck's weight capacity is less than or equal to 1000, it adds the weight of the shipment to the truck's capacity
+// and then checks if the updated capacity is still less than or equal to 1000.
+// If it is, the function returns 1 (true), indicating that the truck is not overloaded.
+// Otherwise, it returns 0 (false), indicating that the truck is overloaded.
 int isTruckOverloaded(struct Truck truck, struct Shipment ship);
 
-
+// This function checks whether a truck's volume capacity is exceeded after adding a box to it.
+// It takes two parameters, 'truck', which represents the truck with its volume capacity,
+// and 'boxSize', which represents the size of the box to be added.
+// If the truck's volume capacity is less than or equal to 36, it adds the size of the box to the truck's capacity
+// and then checks if the updated capacity is still less than or equal to 36.
+// If it is, the function returns 1 (true), indicating that the box can be added without exceeding the truck's volume capacity.
+// Otherwise, it returns 0 (false), indicating that the box size exceeds the truck's capacity.
 int isBoxSizeExceeded(struct Truck truck, float boxSize);
 
-
+// This function checks whether a given box size is valid or not.
+// It takes a parameter 'boxsize', which represents the size of the box to be checked.
+// The function defines three constant values 'minSize', 'halfSize', and 'maxSize' representing the valid box sizes.
+// It then compares the given 'boxsize' with these constants.
+// If 'boxsize' matches any of the valid sizes, the function prints "valid" and returns 1 (true), indicating that the box size is valid.
+// Otherwise, it prints "invalid" and returns 0 (false), indicating that the box size is not valid.
 int vaildCargo(float boxsize);
 
 
