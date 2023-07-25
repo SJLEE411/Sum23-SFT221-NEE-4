@@ -19,19 +19,13 @@ int main(void)
     struct Shipment myShipment = {200};
 
 	    //validCargo function
-	 int isValid;
-	 do{
-		float boxSizeToCheck;
-    printf("Enter cargo: ");
-	 scanf("%f", &boxSizeToCheck);
-    int isValid = validCargo(boxSizeToCheck);
-    if (isValid) {
-        printf("Box size is valid.\n");
-    } else {
-        printf("Box size is not valid.\n");
-    }
-
-	 }while(isValid != 1);
+   int isValid;
+    do {
+        float boxSizeToCheck;
+        printf("Enter cargo: ");
+        scanf("%f", &boxSizeToCheck);
+        isValid = validCargo(boxSizeToCheck);
+    } while (isValid != 1);
 
 
 	     //isBoxSizeExceeded function
