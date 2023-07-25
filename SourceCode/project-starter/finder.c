@@ -137,7 +137,7 @@ int isBoxSizeExceeded(struct Truck truck, float boxSize)
 // It then compares the given 'boxsize' with these constants.
 // If 'boxsize' matches any of the valid sizes, the function prints "valid" and returns 1 (true), indicating that the box size is valid.
 // Otherwise, it prints "invalid" and returns 0 (false), indicating that the box size is not valid.
-int vaildCargo(float boxsize)
+int valildCargo(float boxsize)
 {
     const double minSize = 0.25;
     const double halfSize = 0.5;
