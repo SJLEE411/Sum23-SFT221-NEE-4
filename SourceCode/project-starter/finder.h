@@ -57,7 +57,6 @@ void printRoute(struct Route route, struct Shipment shipment);
  * @param map - Map struct containing the buildings on the map.
  * @returns - int, 1 if the route intersects with a building, 0 if not.
  */
-int isBuildingIntersected(const struct Route route, const struct Map *map);
 
 int isTruckOverloaded(struct Truck truck, struct Shipment ship);
 
