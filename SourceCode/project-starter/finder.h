@@ -3,14 +3,7 @@
 #include <stdio.h>
 #include "mapping.h"
 
-struct Truck
-{
-    int truck_id;
-    float weight_capacity;
-    float volume_capacity;
-    int allocated_shipments;
-    int *destination_counts;
-};
+
 struct Shipment
 {
     float weight;
