@@ -42,11 +42,10 @@ int main(void)
             continue;
         }
 
-        char row = NULL;
-        int col = -1;
+        int row = 0;
+        int col = 0;
 
-         printf("dest2 is: %c", destination2);
-        if (destination2 == 'L')
+        if (destination2 >= 'A' && destination2 <= 'Y')
         {
             //row = destination[0] = 'A';
             if (destination1 >= 1 && destination1 <= 25)
@@ -62,7 +61,7 @@ int main(void)
                     findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, validRoutes, &size);
 
                     int shortestRouteIndex = getBestRoute(validRoutes, myShipment, size);
-
+                    
                     if (shortestRouteIndex != -1)
                     {
                         struct Route shortestRoute = *validRoutes[shortestRouteIndex];
