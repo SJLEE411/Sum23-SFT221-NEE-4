@@ -22,7 +22,7 @@ struct Shipment
  * @returns - void, populates the "routes" array and updates the "size" variable.
  */
 // void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route *routes[MAX_ROUTE], int *size);
-void findValidTruckPaths(struct Shipment shipment, const struct Route *routes[MAX_ROUTE], int *size, const struct Map *map);
+void findValidTruckPaths(struct Shipment shipment,struct Truck truck, const struct Route *routes[MAX_ROUTE], const struct Map *map, int *size);
 /**
  * Function: getBestRoute
  * - Finds the index of the route with the shortest distance among the valid routes in the "routes" array.
