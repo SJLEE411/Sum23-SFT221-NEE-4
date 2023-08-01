@@ -52,7 +52,7 @@ int isBuildingIntersected(const struct Route route, const struct Map *map)
     for (int i = 0; i < route.numPoints; i++)
     {
         // Check if the point in the route is a building on the map
-        if (map->squares[route.points[i].row][route.points[i].col] == 2)
+        if (map->squares[(int)route.points[i].row][(int)route.points[i].col] == 2)
         {
             return 1; // The route intersects with a building
         }
