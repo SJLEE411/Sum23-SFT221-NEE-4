@@ -5,6 +5,7 @@
 #define MAP_ROWS 25
 #define MAP_COLS 25
 #define MAX_ROUTE 100
+#define MAX_TRUCK 3
 #define BLUE 2
 #define GREEN 4
 #define YELLOW 8
@@ -13,31 +14,35 @@
 /**
  * A map is a 2D raster representation of a map with contents of the map encoded as numeric values.
  */
-struct Map
-{
-	int squares[MAP_ROWS][MAP_COLS];
-	int numRows;
-	int numCols;
-};
-
-/**
- * A point represents the row-column position of a square on a map.
- */
 struct Point
 {
-	char row;
-	char col;
+    char row;
+    char col;
 };
 
-/**
- * A route is a collection of points that are adjacent to one another and constitute a path from the
- * first point on the path to the last.
- */
 struct Route
 {
-	struct Point points[MAX_ROUTE];
-	int numPoints;
-	char routeSymbol;
+    struct Point points[MAX_ROUTE];
+    int numPoints;
+    char routeSymbol;
+};
+
+struct Truck
+{
+    int truck_id;
+    float weight_capacity;
+    float volume_capacity;
+    int allocated_shipments;
+    int *destination_counts;
+};
+
+struct Map
+{
+    int squares[MAP_ROWS][MAP_COLS];
+    int numRows;
+    int numCols;
+    struct Route routes[MAX_ROUTE];
+    struct Truck trucks[MAX_TRUCK];
 };
 
 /**
@@ -171,4 +176,4 @@ int getClosestPoint(const struct Route *route, const struct Point pt);
  */
 int eqPt(const struct Point p1, const struct Point p2);
 
-#endif
+#endif // MAPPING_H
