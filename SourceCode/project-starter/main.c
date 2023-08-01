@@ -17,14 +17,16 @@ int main(void)
     struct Shipment myShipment;
     int weight;
     float boxSize;
-    char destination[3];
+    int destination1;
+    char destination2;
 
     while (1)
     {
         printf("Enter shipment weight, box size and destination (0 0 x to stop): ");
-        scanf("%d %f %s", &weight, &boxSize, destination);
+        scanf("%d %f %d %c", &weight, &boxSize, &destination1, &destination2);
 
-        if (weight == 0 && boxSize == 0 && destination[0] == 'x')
+    
+        if (weight == 0 && boxSize == 0 && destination2 == 'x')
             break;
 
         myShipment.weight = weight;
@@ -36,15 +38,20 @@ int main(void)
         }
 
         if (!validCargo(boxSize))
-            continue;
-
-        char row, col;
-        if (destination[0] >= 'A' && destination[0] <= 'Z')
         {
-            row = destination[0] - 'A';
-            if (destination[1] >= '0' && destination[1] <= '9' && destination[2] == '\0')
+            continue;
+        }
+
+        char row = NULL;
+        int col = -1;
+
+         printf("dest2 is: %c", destination2);
+        if (destination2 == 'L')
+        {
+            //row = destination[0] = 'A';
+            if (destination1 >= 1 && destination1 <= 25)
             {
-                col = destination[1] - '0';
+                //col = destination[1] - '0';
                 if (row >= 0 && row < routeMap.numRows && col >= 0 && col < routeMap.numCols)
                 {
                     //struct Point dest = {row, col};
