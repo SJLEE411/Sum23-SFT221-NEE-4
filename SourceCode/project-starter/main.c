@@ -38,7 +38,7 @@ int main(void)
         if (!validCargo(boxSize))
             continue;
 
-        int row, col;
+        char row, col;
         if (destination[0] >= 'A' && destination[0] <= 'Z')
         {
             row = destination[0] - 'A';
@@ -47,7 +47,7 @@ int main(void)
                 col = destination[1] - '0';
                 if (row >= 0 && row < routeMap.numRows && col >= 0 && col < routeMap.numCols)
                 {
-                    struct Point dest = {row, col};
+                    //struct Point dest = {row, col};
                     int size = 0;
                     struct Route *validRoutes[MAX_ROUTE] = {0};
                     findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, validRoutes, &size);
