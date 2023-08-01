@@ -17,7 +17,7 @@ void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const str
                 routes[count++] = routes[i];
             }
         }
-    }
+    }//zxczxc
     *size = count; // Update the number of valid routes found
 }
 
