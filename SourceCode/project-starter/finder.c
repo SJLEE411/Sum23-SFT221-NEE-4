@@ -3,16 +3,16 @@
 #include <limits.h>
 
 // Function to find valid truck paths that reach the given shipment destination
-void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, const struct Route *routes[MAX_ROUTE], int *size)
+void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route routes[MAX_ROUTE], int *size)
 {
     int count = 0; 
     for (int i = 0; i < truck.allocated_shipments; i++)
     {
         // Check if the truck's destination count matches the shipment's destination
-        if (truck.destination_counts[i] == hasDestination(routes[i], shipment))
+        if (truck.destination_counts[i] == hasDestination(&routes[i], shipment))
         {
             // Check if the route intersects with buildings on the map
-            if (!isBuildingIntersected(*routes[i], map))
+            if (!isBuildingIntersected(routes[i], map))
             {
                 routes[count++] = routes[i];
             }
