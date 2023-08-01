@@ -5,7 +5,7 @@
 // Function to find valid truck paths that reach the given shipment destination
 void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route *routes[MAX_ROUTE], int *size)
 {
-    int count = 0;
+    int count = 0; 
     for (int i = 0; i < truck.allocated_shipments; i++)
     {
         // Check if the truck's destination count matches the shipment's destination
