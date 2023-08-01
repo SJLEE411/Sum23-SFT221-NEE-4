@@ -38,6 +38,7 @@ struct Route
 	struct Point points[MAX_ROUTE];
 	int numPoints;
 	char routeSymbol;
+	int destination_count; // New field to store the destination count for the route
 };
 
 /**
