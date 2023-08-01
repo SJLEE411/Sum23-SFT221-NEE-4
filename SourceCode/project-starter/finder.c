@@ -3,7 +3,7 @@
 #include <limits.h>
 
 // Function to find valid truck paths that reach the given shipment destination
-void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route *routes[MAX_ROUTE], int *size)
+void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, const struct Route *routes[MAX_ROUTE], int *size)
 {
     int count = 0; 
     for (int i = 0; i < truck.allocated_shipments; i++)
