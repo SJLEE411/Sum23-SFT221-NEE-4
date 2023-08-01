@@ -12,7 +12,7 @@ int main(void)
     struct Map routeMap = addRoute(&baseMap, &blueRoute);
     routeMap = addRoute(&routeMap, &greenRoute);
     routeMap = addRoute(&routeMap, &yellowRoute);
-    routeMap = addRoute(&routeMap, &blueRoute); 
+    routeMap = addRoute(&routeMap, &blueRoute);
 
     struct Shipment myShipment;
     int weight;
@@ -25,7 +25,6 @@ int main(void)
         printf("Enter shipment weight, box size and destination (0 0 x to stop): ");
         scanf("%d %f %d %c", &weight, &boxSize, &destination1, &destination2);
 
-    
         if (weight == 0 && boxSize == 0 && destination2 == 'x')
             break;
 
@@ -47,21 +46,21 @@ int main(void)
 
         if (destination2 >= 'A' && destination2 <= 'Y')
         {
-            //row = destination[0] = 'A';
+            // row = destination[0] = 'A';
             if (destination1 >= 1 && destination1 <= 25)
             {
-                //col = destination[1] - '0';
+                // col = destination[1] - '0';
                 if (row >= 0 && row < routeMap.numRows && col >= 0 && col < routeMap.numCols)
                 {
-                    //struct Point dest = {row, col};
+                    // struct Point dest = {row, col};
                     int size = 0;
                     struct Route *validRoutes[MAX_ROUTE] = {0};
-                    findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, validRoutes, &size);
-                    findValidTruckPaths(myShipment, routeMap.trucks[1], &routeMap, validRoutes, &size);
-                    findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, *validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[1], &routeMap, *validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, *validRoutes, &size);
 
                     int shortestRouteIndex = getBestRoute(validRoutes, myShipment, size);
-                    
+
                     if (shortestRouteIndex != -1)
                     {
                         struct Route shortestRoute = *validRoutes[shortestRouteIndex];
