@@ -3,68 +3,6 @@
 #include "mapping.h"
 #include "finder.h"
 
-// int main(void)
-// {
-// 	struct Map baseMap = populateMap();
-// 	struct Route blueRoute = getBlueRoute();
-// 	struct Route greenRoute = getGreenRoute();
-// 	struct Route yellowRoute = getYellowRoute();
-// 	struct Map routeMap = addRoute(&baseMap, &blueRoute);
-// 	routeMap = addRoute(&routeMap, &greenRoute);
-// 	routeMap = addRoute(&routeMap, &yellowRoute);
-// 	routeMap = addRoute(&routeMap, &blueRoute);
-
-// 	 struct Truck myTruck = {800, 30.0};
-//     struct Shipment myShipment = {200};
-
-// 	    //validCargo function
-//    int isValid;
-//     do {
-//         float boxSizeToCheck;
-//         printf("Enter cargo: ");
-//         scanf("%f", &boxSizeToCheck);
-//         isValid = validCargo(boxSizeToCheck);
-//     } while (isValid != 1);
-
-// 	     //isBoxSizeExceeded function
-//         int boxExceeded;
-//     do {
-//         float boxToAdd;
-
-//         printf("Enter box size: ");
-//         scanf("%f", &boxToAdd); // Corrected the scanf statement
-
-//         boxExceeded = isBoxSizeExceeded(myTruck, boxToAdd);
-//         if (boxExceeded) {
-//             printf("Box can be added without exceeding the truck's volume capacity.\n");
-//         } else {
-//             printf("Box size exceeds the truck's volume capacity.\n");
-//         }
-//     } while (boxExceeded != 1);
-
-//     //isTruckOverloaded function
-// 	int truckOverloaded;
-// 	do{
-//     truckOverloaded = isTruckOverloaded(myTruck, myShipment);
-//     if (truckOverloaded) {
-//         printf("Truck is overloaded.\n");
-//     } else {
-//         printf("Truck is not overloaded.\n");
-//     }
-
-// 	}while(truckOverloaded != 1);
-
-// 	printMap(&routeMap, 1, 1);
-
-// 	return 0;
-
-// }
-
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include "mapping.h"
-#include "finder.h"
-
 int main(void)
 {
     struct Map baseMap = populateMap();
@@ -74,13 +12,12 @@ int main(void)
     struct Map routeMap = addRoute(&baseMap, &blueRoute);
     routeMap = addRoute(&routeMap, &greenRoute);
     routeMap = addRoute(&routeMap, &yellowRoute);
-    routeMap = addRoute(&routeMap, &blueRoute);
+    routeMap = addRoute(&routeMap, &blueRoute); 
 
     struct Shipment myShipment;
     int weight;
     float boxSize;
     char destination[3];
-    const struct Route **validRoutes[MAX_ROUTE] = {0};
 
     while (1)
     {
@@ -101,7 +38,7 @@ int main(void)
         if (!validCargo(boxSize))
             continue;
 
-        int row, col;
+        char row, col;
         if (destination[0] >= 'A' && destination[0] <= 'Z')
         {
             row = destination[0] - 'A';
@@ -110,12 +47,12 @@ int main(void)
                 col = destination[1] - '0';
                 if (row >= 0 && row < routeMap.numRows && col >= 0 && col < routeMap.numCols)
                 {
-                    struct Point dest = {row, col};
+                    //struct Point dest = {row, col};
                     int size = 0;
                     struct Route *validRoutes[MAX_ROUTE] = {0};
-                    // findValidTruckPaths(myShipment, validRoutes, &size, &routeMap);
-                    // int size = 0;
-                    findValidTruckPaths(myShipment, (const struct Route **)validRoutes, &size, &routeMap);
+                    findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[1], &routeMap, validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, validRoutes, &size);
 
                     int shortestRouteIndex = getBestRoute(validRoutes, myShipment, size);
 
