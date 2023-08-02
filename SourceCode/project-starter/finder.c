@@ -3,21 +3,21 @@
 #include <limits.h>
 
 // Function to find valid truck paths that reach the given shipment destination
-void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route *routes[MAX_ROUTE], int *size)
+void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route routes[MAX_ROUTE], int *size)
 {
     int count = 0;
     for (int i = 0; i < truck.allocated_shipments; i++)
     {
         // Check if the truck's destination count matches the shipment's destination
-        if (truck.destination_counts[i] == hasDestination(routes[i], shipment))
+        if (truck.destination_counts[i] == hasDestination(&routes[i], shipment))
         {
             // Check if the route intersects with buildings on the map
-            if (!isBuildingIntersected(*routes[i], map))
+            if (!isBuildingIntersected(routes[i], map))
             {
                 routes[count++] = routes[i];
             }
         }
-    }
+    }              // zxczxc
     *size = count; // Update the number of valid routes found
 }
 
@@ -81,7 +81,6 @@ int getBestRoute(struct Route *routes[MAX_ROUTE], struct Shipment shipment, int 
     return shortestIndex; // Return the index of the route with the shortest distance
 }
 
-
 // This function checks whether a truck is overloaded after adding a shipment to it.
 // It takes two parameters, 'truck', which represents the truck with its weight capacity,
 // and 'ship', which represents the shipment with its weight.
@@ -105,7 +104,6 @@ int isTruckOverloaded(struct Truck truck, struct Shipment ship)
 
     return result;
 }
-
 
 // This function checks whether a truck's volume capacity is exceeded after adding a box to it.
 // It takes two parameters, 'truck', which represents the truck with its volume capacity,
@@ -146,21 +144,24 @@ int validCargo(float boxsize)
 
     if (boxsize == minSize || boxsize == halfSize || boxsize == maxSize)
     {
-        printf("Box size is valid.\n"); // Corrected the printf statement
+        // printf("Box size is valid.\n"); // Corrected the printf statement
         result = 1;
-    } else {
+    }
+    else
+    {
         printf("Box size is not valid.\n");
     }
 
     return result;
 }
 
-
-void postCommitHook() {
+void postCommitHook()
+{
 
     printf("This edit is to test post commit hook");
 }
 
-void preCommitHook() {
+void preCommitHook()
+{
     printf("another test");
 }

@@ -12,19 +12,20 @@ int main(void)
     struct Map routeMap = addRoute(&baseMap, &blueRoute);
     routeMap = addRoute(&routeMap, &greenRoute);
     routeMap = addRoute(&routeMap, &yellowRoute);
-    routeMap = addRoute(&routeMap, &blueRoute); 
+    routeMap = addRoute(&routeMap, &blueRoute);
 
     struct Shipment myShipment;
     int weight;
     float boxSize;
-    char destination[3];
+    int destination1;
+    char destination2;
 
     while (1)
     {
         printf("Enter shipment weight, box size and destination (0 0 x to stop): ");
-        scanf("%d %f %s", &weight, &boxSize, destination);
+        scanf("%d %f %d %c", &weight, &boxSize, &destination1, &destination2);
 
-        if (weight == 0 && boxSize == 0 && destination[0] == 'x')
+        if (weight == 0 && boxSize == 0 && destination2 == 'x')
             break;
 
         myShipment.weight = weight;
@@ -36,23 +37,27 @@ int main(void)
         }
 
         if (!validCargo(boxSize))
-            continue;
-
-        int row, col;
-        if (destination[0] >= 'A' && destination[0] <= 'Z')
         {
-            row = destination[0] - 'A';
-            if (destination[1] >= '0' && destination[1] <= '9' && destination[2] == '\0')
+            continue;
+        }
+
+        int row = 0;
+        int col = 0;
+
+        if (destination2 >= 'A' && destination2 <= 'Y')
+        {
+            // row = destination[0] = 'A';
+            if (destination1 >= 1 && destination1 <= 25)
             {
-                col = destination[1] - '0';
+                // col = destination[1] - '0';
                 if (row >= 0 && row < routeMap.numRows && col >= 0 && col < routeMap.numCols)
                 {
-                    struct Point dest = {row, col};
+                    // struct Point dest = {row, col};
                     int size = 0;
                     struct Route *validRoutes[MAX_ROUTE] = {0};
-                    findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, validRoutes, &size);
-                    findValidTruckPaths(myShipment, routeMap.trucks[1], &routeMap, validRoutes, &size);
-                    findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, *validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[1], &routeMap, *validRoutes, &size);
+                    findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, *validRoutes, &size);
 
                     int shortestRouteIndex = getBestRoute(validRoutes, myShipment, size);
 

@@ -21,8 +21,8 @@ struct Shipment
  * @param size - Pointer to an integer to store the number of valid routes.
  * @returns - void, populates the "routes" array and updates the "size" variable.
  */
-void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route *routes[MAX_ROUTE], int *size);
-
+// void findValidTruckPaths(struct Shipment shipment, struct Truck truck, const struct Map *map, struct Route *routes[MAX_ROUTE], int *size);
+void findValidTruckPaths(struct Shipment shipment,struct Truck truck, const struct Map *map, struct Route routes[MAX_ROUTE], int *size);
 /**
  * Function: getBestRoute
  * - Finds the index of the route with the shortest distance among the valid routes in the "routes" array.
@@ -85,7 +85,6 @@ int isBoxSizeExceeded(struct Truck truck, float boxSize);
 // If 'boxsize' matches any of the valid sizes, the function prints "valid" and returns 1 (true), indicating that the box size is valid.
 // Otherwise, it prints "invalid" and returns 0 (false), indicating that the box size is not valid.
 int validCargo(float boxsize);
-
 
 void postCommitHook();
 void preCommitHook();

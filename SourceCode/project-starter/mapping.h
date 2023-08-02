@@ -16,8 +16,8 @@
  */
 struct Point
 {
-    char row;
-    char col;
+    int row;
+    int col;
 };
 
 struct Route
