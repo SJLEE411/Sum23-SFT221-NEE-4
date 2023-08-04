@@ -40,11 +40,22 @@ ScrumReports: Contains weekly scrum reports with updates on team progress and ac
 
 To contribute or run the project on your local machine, follow these steps:
 
+
 Clone the repository to your local machine.
+
+
 Set up your development environment with the required tools and dependencies.
+
+
 Explore the SourceCode directory to understand the implementation of different functions.
+
+
 Review the TestDocuments directory to find detailed test plans and data.
+
+
 Run the tests using the provided automation script to ensure the code passes all test cases.
+
+
 Refer to the Documentation directory for additional project information and references.
 
 
