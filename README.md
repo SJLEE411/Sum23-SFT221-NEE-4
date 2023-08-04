@@ -65,3 +65,8 @@ Team Member 4: Yoojin Lee 188162218 ylee237@myseneca.ca
 
 Team Member 5: Song Hwan Oh 116872227 Soh62@myseneca.ca
 
+
+## Project description
+
+
+[project-student-2023.v2.pdf](https://github.com/SJLEE411/Sum23-SFT221-NEE-4/files/12256640/project-student-2023.v2.pdf)
