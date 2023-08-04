@@ -19,11 +19,22 @@ Prepared a final testing report that documents all tests, bug fixes, and the ove
 
 ## Repository Structure
 Our repository is organized as follows:
+
+
 SourceCode: Contains the project's source code, including functions and algorithms.
+
+
 TestDocuments: Contains the written test documents, including unit, integration, and acceptance tests.
+
+
 TestResults: Contains recorded test results and logs from test executions.
+
+
 Documentation: Includes project-related documents, diagrams, and references.
+
+
 ScrumReports: Contains weekly scrum reports with updates on team progress and activities.
+
 
 ## Getting Started
 
