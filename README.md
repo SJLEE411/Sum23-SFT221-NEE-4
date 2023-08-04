@@ -64,17 +64,13 @@ Refer to the Documentation directory for additional project information and refe
 
 Team Member 1: Ji Ho Nam 139817217 jhnam@myseneca.ca
 
-
 Team Member 2: Sangjune Lee 123050221 slee569@myseneca.ca
-
 
 Team Member 3: Shine Lee 130563224 ylee248@myseneca.ca
 
-
 Team Member 4: Yoojin Lee 188162218 ylee237@myseneca.ca
 
-
-Team Member 5: Song Hwan Oh 116872227 Soh62@myseneca.ca
+Team Member 5: Song Hwan Oh 116872227 soh62@myseneca.ca
 
 
 ## Project description
