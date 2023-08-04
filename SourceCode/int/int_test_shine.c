@@ -79,9 +79,6 @@ void test_findValidTruckPaths()
 }
 
 
-
-// Implement other test functions in a similar way...
-
 // Function to test the hasDestination function
 void test_hasDestination()
 {
@@ -106,7 +103,6 @@ void test_hasDestination()
     // int result3 = hasDestination(&route3, shipment3);
     // printf("Test Case 3: %s\n", result3 == expected3 ? "PASS" : "FAIL");
 
-    // Add more test cases as needed...
 }
 
 
@@ -133,10 +129,8 @@ void test_isBuildingIntersected()
     int result3 = isBuildingIntersected(yellowRoute, &map);
     printf("Test Case 3: %s\n", result3 == expected3 ? "test_isBuildingIntersected test passed!" : "test_isBuildingIntersected test failed!");
 
-    // Add more test cases as needed...
 }
 
-// Implement other test functions in a similar way...
 
 // Test function for getBestRoute
 void test_getBestRoute()
@@ -171,8 +165,6 @@ void test_getBestRoute()
 }
 
 
-// Implement other test functions in a similar way...
-
 void test_isTruckOverloaded()
 {
     // // Test case 1: Truck weight capacity is 900, shipment weight is 100, result should be 0 (not overloaded)
@@ -203,8 +195,6 @@ void test_isTruckOverloaded()
     //     printf("Test case 3 failed!\n");
 }
 
-// Implement other test functions in a similar way...
-
 // Test cases for isBoxSizeExceeded
 void test_isBoxSizeExceeded()
 {
@@ -229,8 +219,6 @@ void test_isBoxSizeExceeded()
     }
 }
 
-// Implement other test functions in a similar way...
-
 // Test cases for validCargo
 void test_validCargo()
 {
@@ -251,5 +239,3 @@ void test_validCargo()
         printf("test failed!\n");
     }
 }
-
-// Implement other test functions in a similar way...
