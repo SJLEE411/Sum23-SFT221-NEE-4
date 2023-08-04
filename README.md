@@ -6,6 +6,7 @@ Welcome to the Seneca Deliveries project repository for Group 4! In this project
 ## Project Description
 
 The city map is represented as a 25 by 25 square grid, with buildings, routes, and delivery paths. Our delivery trucks have specific routes and capacities, and our task is to determine the best truck for each package based on the distance to the destination and available space. We'll also need to handle package diversion and delivery path calculations.
+[project-student-2023.v2.pdf](https://github.com/SJLEE411/Sum23-SFT221-NEE-4/files/12256640/project-student-2023.v2.pdf)
 
 ## Milestone 5 Progress (Current Status)
 In Milestone 5, our group has made significant progress:
@@ -73,7 +74,3 @@ Team Member 4: Yoojin Lee 188162218 ylee237@myseneca.ca
 Team Member 5: Song Hwan Oh 116872227 soh62@myseneca.ca
 
 
-## Project description
-
-
-[project-student-2023.v2.pdf](https://github.com/SJLEE411/Sum23-SFT221-NEE-4/files/12256640/project-student-2023.v2.pdf)
