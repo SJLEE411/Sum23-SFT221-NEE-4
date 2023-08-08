@@ -36,25 +36,25 @@ struct Map populateMap()
 			{0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}	 // 24
 		},
 		MAP_ROWS,
-		MAP_COLS};
+		MAP_COLS };
 	return result;
 }
 
-int getNumRows(const struct Map *map)
+int getNumRows(const struct Map* map)
 {
 	return map->numRows;
 }
 
-int getNumCols(const struct Map *map)
+int getNumCols(const struct Map* map)
 {
 	return map->numCols;
 }
 
-void printMap(const struct Map *map, const int base1, const int alphaCols)
+void printMap(const struct Map* map, const int base1, const int alphaCols)
 {
 	//              01234567890123456
 	//              1248F
-	char sym[] = {" XB?G?.?Y?-?*?+?P"};
+	char sym[] = { " XB?G?.?Y?-?*?+?P" };
 	int r, c, rowMax;
 
 	rowMax = map->numRows + base1;
@@ -134,7 +134,7 @@ struct Route getBlueRoute()
 			{17, 24},
 		},
 		42,
-		BLUE};
+		BLUE };
 	return result;
 }
 
@@ -186,7 +186,7 @@ struct Route getGreenRoute()
 
 		},
 		42,
-		GREEN};
+		GREEN };
 	return result;
 }
 
@@ -242,52 +242,75 @@ struct Route getYellowRoute()
 		 {19, 23},
 		 {19, 24}},
 		48,
-		YELLOW};
+		YELLOW };
 	return result;
 }
 
-struct Map addRoute(const struct Map *map, const struct Route *route)
-{
-	int r, c;
-	struct Map result = {{0}, 0};
-
-	for (r = 0; r < map->numRows; r++)
+// August 8 fixed from
+/*
+	struct Map addRoute(const struct Map* map, const struct Route* route)
 	{
-		for (c = 0; c < map->numCols; c++)
+		int r, c;
+		struct Map result = { {0}, 0 };
+
+		for (r = 0; r < map->numRows; r++)
 		{
-			result.squares[r][c] = map->squares[r][c];
+			for (c = 0; c < map->numCols; c++)
+			{
+				result.squares[r][c] = map->squares[r][c];
+			}
+		}
+		result.numRows = map->numRows;
+		result.numCols = map->numCols;
+
+		for (r = 0; r < route->numPoints; r++)
+		{
+			result.squares[route->points[r].row][route->points[r].col] += route->routeSymbol;
+		}
+
+		return result;
+	}
+*/
+struct Map addRoute(const struct Map* map, const struct Route* route)
+{
+	struct Map updatedMap = *map;
+
+	// Loop through the route's points and add the route symbol to the corresponding map squares
+	for (int i = 0; i < route->numPoints; i++) {
+		int row = route->points[i].row;
+		int col = route->points[i].col;
+
+		// Ensure that the row and column are within valid bounds
+		if (row >= 0 && row < updatedMap.numRows && col >= 0 && col < updatedMap.numCols) {
+			// Only add the route symbol if the square is not a building
+			if (updatedMap.squares[row][col] != 'X') {
+				updatedMap.squares[row][col] = route->routeSymbol;
+			}
 		}
 	}
-	result.numRows = map->numRows;
-	result.numCols = map->numCols;
 
-	for (r = 0; r < route->numPoints; r++)
-	{
-		result.squares[route->points[r].row][route->points[r].col] += route->routeSymbol;
-	}
-
-	return result;
+	return updatedMap;
 }
 
-void addPtToRoute(struct Route *route, struct Point pt)
+void addPtToRoute(struct Route* route, struct Point pt)
 {
 	route->points[route->numPoints++] = pt;
 }
 
-void addPointToRoute(struct Route *route, const int row, const int col)
+void addPointToRoute(struct Route* route, const int row, const int col)
 {
-	struct Point pt = {row, col};
+	struct Point pt = { row, col };
 	addPtToRoute(route, pt);
 }
 
-void addPointToRouteIfNot(struct Route *route, const int row, const int col, const struct Point notThis)
+void addPointToRouteIfNot(struct Route* route, const int row, const int col, const struct Point notThis)
 {
-	struct Point pt = {row, col};
+	struct Point pt = { row, col };
 	if (notThis.row != row || notThis.col != col)
 		addPtToRoute(route, pt);
 }
 
-double distance(const struct Point *p1, const struct Point *p2)
+double distance(const struct Point* p1, const struct Point* p2)
 {
 	int deltaRow = p2->row - p1->row;
 	int deltaCol = p2->col - p1->col;
@@ -295,12 +318,12 @@ double distance(const struct Point *p1, const struct Point *p2)
 	return sqrt((double)(deltaRow * deltaRow + deltaCol * deltaCol));
 }
 
-struct Route shortestPath(const struct Map *map, const struct Point start, const struct Point dest)
+struct Route shortestPath(const struct Map* map, const struct Point start, const struct Point dest)
 {
-	struct Route result = {{0, 0}, 0, DIVERSION};
-	struct Point last = {-1, -1};
+	struct Route result = { {0, 0}, 0, DIVERSION };
+	struct Point last = { -1, -1 };
 	struct Point current = start;
-	struct Route possible = {{0, 0}, 0, 0};
+	struct Route possible = { {0, 0}, 0, 0 };
 	int close = 0;
 
 	while (!eqPt(current, dest) && close >= 0)
@@ -318,9 +341,9 @@ struct Route shortestPath(const struct Map *map, const struct Point start, const
 	return result;
 }
 
-struct Route getPossibleMoves(const struct Map *map, const struct Point p1, const struct Point backpath)
+struct Route getPossibleMoves(const struct Map* map, const struct Point p1, const struct Point backpath)
 {
-	struct Route result = {{0, 0}, 0, DIVERSION};
+	struct Route result = { {0, 0}, 0, DIVERSION };
 
 	if (p1.row > 0)
 	{
@@ -348,7 +371,7 @@ struct Route getPossibleMoves(const struct Map *map, const struct Point p1, cons
 	return result;
 }
 
-int getClosestPoint(const struct Route *route, const struct Point pt)
+int getClosestPoint(const struct Route* route, const struct Point pt)
 {
 	int i, closestIdx = -1;
 	double closestDist = 999999.9, dist;
