@@ -1,0 +1,25 @@
+The test functions are testing the interaction and integration of various functions and components 
+from the finder.h module, such as routes, shipments, trucks, and maps.
+
+Integration tests typically involve multiple units of code working together to achieve a specific 
+functionality, and they are used to validate that these units collaborate effectively. 
+Your test functions exhibit this behavior:
+
+    test_findValidTruckPaths(): Tests the interaction between the findValidTruckPaths() function, 
+    the mock map, and the predefined routes.
+
+    test_hasDestination(): Tests the interaction between the hasDestination() function and predefined 
+    routes and shipments.
+
+    test_isBuildingIntersected(): Tests the interaction between the isBuildingIntersected() function, 
+    the predefined map, and routes.
+
+    test_getBestRoute(): Tests the interaction between the getBestRoute() function, predefined routes, 
+    and shipments.
+
+    test_isTruckOverloaded(), test_isBoxSizeExceeded(), test_validCargo(): Test interactions between various 
+    functions related to truck and cargo handling.
+
+Each of these tests exercises the interaction between different components and checks whether they work correctly 
+together to achieve the desired functionality. This aligns with the concept of integration testing. Keep in mind that 
+integration tests can cover a range of scenarios where multiple units of code need to collaborate effectively.
