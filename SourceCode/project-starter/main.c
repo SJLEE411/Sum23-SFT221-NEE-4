@@ -54,7 +54,7 @@ int main(void)
                 {
                     // struct Point dest = {row, col};
                     int size = 0;
-                    struct Route *validRoutes[MAX_ROUTE] = {0};
+                    struct Route* validRoutes[MAX_ROUTE] = { 0 };
                     findValidTruckPaths(myShipment, routeMap.trucks[0], &routeMap, *validRoutes, &size);
                     findValidTruckPaths(myShipment, routeMap.trucks[1], &routeMap, *validRoutes, &size);
                     findValidTruckPaths(myShipment, routeMap.trucks[2], &routeMap, *validRoutes, &size);
