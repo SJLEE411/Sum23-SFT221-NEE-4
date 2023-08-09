@@ -22,15 +22,44 @@ int main()
 }
 
 // Test cases for hasDestination
+// August 8 fixed from    
+/*
+    void test_hasDestination()
+    {
+        // Define and initialize the necessary structures and variables for testing
+        struct Shipment shipment;
+        shipment.destination.row = 5;
+        shipment.destination.col = 5;
+
+        struct Route route;
+        // Initialize the route as required for testing
+
+        // Test the function
+        int result = hasDestination(&route, shipment);
+
+        // Print the results
+        printf("test_hasDestination ");
+        if (result == 1)
+        {
+            printf("test passed!\n");
+        }
+        else
+        {
+            printf("test failed!\n");
+        }
+    }
+*/
 void test_hasDestination()
 {
-    // Define and initialize the necessary structures and variables for testing
     struct Shipment shipment;
     shipment.destination.row = 5;
     shipment.destination.col = 5;
 
     struct Route route;
-    // Initialize the route as required for testing
+    route.numPoints = 3; 
+    route.points[0] = (struct Point){ 3, 3 };
+    route.points[1] = (struct Point){ 4, 4 };
+    route.points[2] = (struct Point){ 5, 5 }; 
 
     // Test the function
     int result = hasDestination(&route, shipment);
