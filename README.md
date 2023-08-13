@@ -11,6 +11,8 @@ The city map is represented as a 25 by 25 square grid, with buildings, routes, a
 ## Milestone 5 Progress (Current Status)
 In Milestone 5, our group has made significant progress:
 
+## Robin: Does the project build well?
+
 Implemented integration tests that ensure the correct interaction between different functions.
 Created acceptance tests to validate that the requirements of the project are met.
 Executed the acceptance tests and debugged any issues that arose.
