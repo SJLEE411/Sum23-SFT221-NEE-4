@@ -25,7 +25,7 @@ int main(void)
         printf("Enter shipment weight, box size and destination (0 0 x to stop): ");
         scanf("%d %f %d %c", &weight, &boxSize, &destination1, &destination2);
 
-        if (weight == 0 && boxSize == 0 && destination2 == 'x')
+        if (weight == 0 && boxSize == 0 )
             break;
 
         myShipment.weight = weight;
